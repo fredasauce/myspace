@@ -22,7 +22,7 @@ export class AuthProvider extends React.Component {
     axios.post("/api/auth", user)
       .then( res => {
         this.setState({ user: res.data.data, });
-        history.push("/";)
+        history.push("/")
       })
       .catch( err => {
         console.log(err)
@@ -33,7 +33,7 @@ export class AuthProvider extends React.Component {
     axios.delete("/api/auth/sign_out")
       .then( res => {
         this.setState({ user: null, });
-        history.push("./login";)
+        history.push("./login")
       })
       .catch( err => {
         console.log(err);
@@ -43,7 +43,7 @@ export class AuthProvider extends React.Component {
   render() {
     const { user, } = this.state
     return (
-      <AuthProvider value={{
+      <AuthContext.Provider value={{
         user,
         authenticated: user !== null,
         handleLogin: this.handleLogin,
@@ -52,7 +52,7 @@ export class AuthProvider extends React.Component {
         setUser: (user) => this.setState({ user, }),
       }}>
         { this.props.children }
-      </AuthProvider>
+      </AuthContext.Provider>
     );
   };
 };
