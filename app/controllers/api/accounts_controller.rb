@@ -12,6 +12,15 @@ class Api::AccountsController < ApplicationController
   end
 
   def update
+    current_user.liked_accounts << params[:id].to_i
+    current_user.save
+  end
+
+  def destroy
+  end
+
+  def my_accounts
+    render json: User.liked(current_user.liked_accounts)
   end
 end
 
