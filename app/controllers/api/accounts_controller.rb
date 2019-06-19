@@ -2,7 +2,7 @@ class Api::AccountsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    render json: Accounts.all
+    render json: Account.all
   end
 
   def show
