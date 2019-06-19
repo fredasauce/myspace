@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import FetchUser from "./components/FetchUser"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
+import MyAccounts from "./components/MyAccounts"
 import NoMatch from "./components/NoMatch"
 import Login from "./components/Login"
 import Register from "./components/Register"
@@ -16,6 +17,7 @@ const App = () => (
       <Container>
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/my_accounts" component={MyAccounts} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} /> */}
           <Route component={NoMatch} />

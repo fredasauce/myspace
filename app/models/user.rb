@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
 
   serialize :liked_accounts, Array
 
+  # def self.random_account(ids)
+  #   ids = ids.empty? ? [0] : ids
+  #   Account.where("id NOT IN (?)", ids).order("RANDOM()")
+  #  end
+   
   def self.liked(ids)
     ids = ids.empty? ? [0] : ids
     Account.where("id IN (?)", ids)

@@ -3,6 +3,7 @@ class Api::AccountsController < ApplicationController
   
   def index
     render json: Account.all
+    # render json: User.random_account(current_user.liked_accounts)
   end
 
   def show
