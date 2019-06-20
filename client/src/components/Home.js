@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { Link, } from "react-router-dom"
-import { Header, Image, Card, Button, Icon, Divider, } from "semantic-ui-react"
+import { Header, Image, Card, Button, Divider, } from "semantic-ui-react"
 
 class Home extends React.Component {
   state = { accounts: [], };

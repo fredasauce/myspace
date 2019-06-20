@@ -2,8 +2,8 @@ class Api::AccountsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    render json: Account.all
-    # render json: User.random_account(current_user.liked_accounts)
+    # render json: Account.all
+    render json: User.non_friends(current_user.liked_accounts)
   end
 
   def show
@@ -22,6 +22,11 @@ class Api::AccountsController < ApplicationController
 
   def my_accounts
     render json: User.liked(current_user.liked_accounts)
+  end
+
+  def remove_friend
+    current_user.liked_accounts.delete(params[:id].to_i)
+    current_user.save
   end
 end
 

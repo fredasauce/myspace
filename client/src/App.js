@@ -9,6 +9,9 @@ import MyAccounts from "./components/MyAccounts"
 import NoMatch from "./components/NoMatch"
 import Login from "./components/Login"
 import Register from "./components/Register"
+import { initMiddleware, } from 'devise-axios'
+
+initMiddleware();
 
 const App = () => (
   <> 
@@ -19,7 +22,7 @@ const App = () => (
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/my_accounts" component={MyAccounts} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} /> */}
+          <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

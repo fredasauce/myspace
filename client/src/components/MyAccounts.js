@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { Link, } from "react-router-dom"
-import { Button, Card, Divider, Icon, Image, Header, } from "semantic-ui-react"
+import { Button, Card, Divider, Image, Header, } from "semantic-ui-react"
 
 class MyAccounts extends React.Component {
   state = { accounts: [], };
@@ -14,7 +14,8 @@ class MyAccounts extends React.Component {
 
   removeFriend = (id) => {
     const { accounts, } = this.state;
-    this.setState({ accounts: accounts.filter( a => a.id !== id ), });
+    axios.put(`/api/remove_friend/${id}`)
+      .then( res => this.setState({ accounts: accounts.filter( a => a.id !== id ), }));
   }
 
   render() {
