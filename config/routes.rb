@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     resources :accounts
     get "my_accounts", to: "accounts#my_accounts"
+    
+    resources :accounts do
+      resources :posts
+    end
+    
   end
 
 end
