@@ -7,13 +7,19 @@ class Api::AccountsController < ApplicationController
   end
 
   def show
-    Account.find_by(user_id)
+    account = Account.find_by(user_id)
+    render json: account
     # decide which way you want to see each account
     # @user.account(params[:id]) shows own acct?
   end
 
   def update
     current_user.liked_accounts << params[:id].to_i
+    current_user.save
+  end
+
+  def remove_friend
+    current_user.liked_accounts.delete(params[:id].to_i)
     current_user.save
   end
 
@@ -24,9 +30,5 @@ class Api::AccountsController < ApplicationController
     render json: User.liked(current_user.liked_accounts)
   end
 
-  def remove_friend
-    current_user.liked_accounts.delete(params[:id].to_i)
-    current_user.save
-  end
 end
 
