@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import { Link, } from "react-router-dom"
 import { Button, Card, Divider, Icon, Image, Header, } from "semantic-ui-react"
 
 class MyAccounts extends React.Component {
@@ -38,10 +39,17 @@ class MyAccounts extends React.Component {
                   </Card.Meta>
                 </Card.Content>
                 <Card.Content extra>
-                <Button color="red" basic onClick={() => this.removeFriend(account.id)}>
-                  Remove Friend
-                </Button>
-              </Card.Content>
+                  <Button.Group>
+                    <Link to={`accounts/${account.id}`}>
+                      <Button color="blue" basic>
+                        Show Account
+                      </Button>
+                    </Link>
+                    <Button color="red" basic onClick={() => this.removeFriend(account.id)}>
+                      Remove Friend
+                    </Button>
+                  </Button.Group>
+                </Card.Content>
               </Card>
             )}
           </Card.Group>
