@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import { Header, Image, Segment, Icon, Divider, } from "semantic-ui-react"
+import { Button, Header, Image, Segment, Icon, Divider, } from "semantic-ui-react"
 
 class ViewAccount extends React.Component {
   state = { account: [], posts: [], }
@@ -52,6 +52,21 @@ class ViewAccount extends React.Component {
                   </Header>
                   <Divider />
                   <Segment tertiary>{post.body}</Segment>
+                  <Divider />
+                  <Button.Group> 
+                    <Button basic color="blue">
+                      <Icon name="thumbs up outline" />
+                      Like
+                    </Button>
+                    <Button basic color="blue">
+                      <Icon name="comment outline" />
+                      Comment
+                    </Button>
+                    <Button basic color="blue">
+                      <Icon name="pencil" />
+                      Edit
+                    </Button>
+                  </Button.Group> 
                 </Segment>
               </Segment>
             ))}
