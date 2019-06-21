@@ -39,17 +39,15 @@ class MyAccounts extends React.Component {
                     Gender: {account.gender}
                   </Card.Meta>
                 </Card.Content>
-                <Card.Content extra>
-                  <Button.Group>
-                    <Link to={`accounts/${account.id}`}>
-                      <Button color="blue" basic>
-                        Show Account
-                      </Button>
-                    </Link>
-                    <Button color="red" basic onClick={() => this.removeFriend(account.id)}>
-                      Remove Friend
+                <Card.Content extra style={{ display: "flex" }}>
+                  <Link to={`accounts/${account.id}`}>
+                    <Button color="blue" basic>
+                      Show Account
                     </Button>
-                  </Button.Group>
+                  </Link>
+                  <Button color="red" basic onClick={() => this.removeFriend(account.id)}>
+                    Remove Friend
+                  </Button>
                 </Card.Content>
               </Card>
             )}

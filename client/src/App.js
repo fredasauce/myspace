@@ -6,6 +6,7 @@ import FetchUser from "./components/FetchUser"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
 import MyAccounts from "./components/MyAccounts"
+import ViewAccount from "./components/ViewAccount"
 import NoMatch from "./components/NoMatch"
 import Login from "./components/Login"
 import Register from "./components/Register"
@@ -21,6 +22,7 @@ const App = () => (
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/my_accounts" component={MyAccounts} />
+          <Route exact path="/accounts/:id" component={ViewAccount} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />

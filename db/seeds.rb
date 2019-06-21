@@ -1,4 +1,4 @@
-@liked_accounts = [ true, false ]
+@liked_posts = [ true, false ]
 
 20.times do
   name = Faker::Name.name
@@ -18,7 +18,7 @@
       Post.create(
         author: Faker::Name.name,
         body: Faker::Lorem.paragraph_by_chars(256, false),
-        liked: @liked_accounts.sample,
+        liked: @liked_posts.sample,
         account_id: acct.id 
       )
 
