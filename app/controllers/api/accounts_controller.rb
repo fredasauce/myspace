@@ -7,7 +7,7 @@ class Api::AccountsController < ApplicationController
   end
 
   def show
-    account = Account.find_by(user_id)
+    account = Account.find(params[:id])
     render json: account
     # decide which way you want to see each account
     # @user.account(params[:id]) shows own acct?
